@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
 const path = require('path');
 const chai = require('chai');
 
@@ -108,11 +107,6 @@ describe('processConfig', () => {
           servicePath: testServicePath
         };
         return processConfig.setOptionsOnConfig(testConfig, testOptions);
-        expect(webpackConfig.output).to.eql({
-          libraryTarget: 'commonjs',
-          path: path.join(testServicePath, '.webpack', 'service'),
-          filename: '[name].js'
-        });
       });
 
       it('should set a default `webpackConfig.output.filename` if `entry` is not defined', () => {
@@ -122,11 +116,6 @@ describe('processConfig', () => {
           servicePath: testServicePath
         };
         return processConfig.setOptionsOnConfig(testConfig, testOptions);
-        expect(webpackConfig.output).to.eql({
-          libraryTarget: 'commonjs',
-          path: path.join(testServicePath, '.webpack', 'service'),
-          filename: '[name].js'
-        });
       });
     });
 
